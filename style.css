@@ -1,0 +1,5 @@
+.range-box span {
+    border: 1px solid #000;
+    padding: 10px;
+    display: inline-block;
+}
