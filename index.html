@@ -16,8 +16,11 @@
         <div class="row mt-5">
 
             <div class="col-md-3 text-center form-group">
-                <label for="invest">Стоимость оборудования</label>
-                <input type="range" name="invest" id="invest" min="10000" max="100000" step="500" value="15000">
+                <h6>Стоимость оборудования ($):</h6>
+                <div class="range-box">
+                    <input type="range" name="invest" id="invest" min="10000" max="100000" step="500" value="15000">
+                    <input type="text" class="form-control" name="rangeBox" id="rangeBox">
+                </div>
 
                 <label for="clients">Среднее к-во клиентов в день</label>
                     <input type="text" name="clients" class="form-control" id="clients" value="5">
@@ -29,10 +32,6 @@
 
                 <label for="work">количество рабочих дней в месяц</label>
                     <input type="text" name="work" class="form-control" id="work" value="15">
-            </div>
-
-            <div class="col-md-3 range-box">
-                <span></span>
             </div>
            
         </div>

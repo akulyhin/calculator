@@ -1,15 +1,15 @@
 import refs from './refs.js';
 
-let investToUah = +refs.range.value * 28;
-console.log(investToUah);
+const currency = 28;
+let investToUah = +refs.range.value * currency;
 
-refs.rangeBox.textContent = `${numeric(refs.range.value)} $`;
+refs.rangeBox.value = numeric(refs.range.value);
 
 let result = +refs.clients.value * +refs.check.value * +refs.work.value;
 
 refs.range.addEventListener('input', (e) => {
-    refs.rangeBox.textContent = `${numeric(e.target.value)} $`;
-    investToUah = +e.target.value * 28;
+    refs.rangeBox.value = numeric(e.target.value);
+    investToUah = +e.target.value * currency;
 
     const clients = document.getElementById('clients').value;
     const check = document.getElementById('check').value;
@@ -18,13 +18,31 @@ refs.range.addEventListener('input', (e) => {
     result = +clients * +check * +work;
     const resultMonth = investToUah / result;
     refs.result.value = resultMonth.toFixed(1);
+})
 
+refs.rangeBox.addEventListener('input', (e) => {
+    e.target.value = e.target.value.replace(/\s/g, '');
+
+    refs.range.value = e.target.value;
+    investToUah = +e.target.value * currency;
+
+    const clients = document.getElementById('clients').value;
+    const check = document.getElementById('check').value;
+    const work = document.getElementById('work').value;
+
+    result = +clients * +check * +work;
+    const resultMonth = investToUah / result;
+    refs.result.value = resultMonth.toFixed(1);
+})
+
+refs.rangeBox.addEventListener('change', (e) => {
+    e.target.value = numeric(e.target.value);
 })
 
 
 refs.clients.addEventListener('input', (e) => {
     const invest = document.getElementById('invest').value;
-    investToUah = +invest * 28;
+    investToUah = +invest * currency;
 
     const check = document.getElementById('check').value;
     const work = document.getElementById('work').value;
@@ -37,7 +55,7 @@ refs.clients.addEventListener('input', (e) => {
 
 refs.check.addEventListener('input', (e) => {
     const invest = document.getElementById('invest').value;
-    investToUah = +invest * 28;
+    investToUah = +invest * currency;
 
     const clients = document.getElementById('clients').value;
     const work = document.getElementById('work').value;
@@ -50,7 +68,7 @@ refs.check.addEventListener('input', (e) => {
 
 refs.work.addEventListener('input', (e) => {
     const invest = document.getElementById('invest').value;
-    investToUah = +invest * 28;
+    investToUah = +invest * currency;
 
     const clients = document.getElementById('clients').value;
     const check = document.getElementById('check').value;

@@ -1,6 +1,6 @@
 const refs = {
     range: document.querySelector('#invest'),
-    rangeBox: document.querySelector('.range-box span'),
+    rangeBox: document.querySelector('#rangeBox'),
     clients: document.getElementById('clients'),
     check: document.getElementById('check'),
     work: document.getElementById('work'),
