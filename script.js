@@ -6,12 +6,13 @@ fetch(url)
 .then(data => {
     const usd = data.filter(usd => usd.ccy === 'USD');
     usd.forEach(item => {
-        refs.currencyUsd.textContent = `${+item.sale} грн.`;
+        refs.currencyUsd.textContent = item.sale;
         currency = +item.sale;
     });
 
+    const toNumber = Number(refs.currencyUsd.textContent);
+    refs.currencyUsd.textContent = toNumber.toFixed(2);
 
-// const currency = 28;
 let investToUah = +refs.range.value * currency;
 
 refs.rangeBox.value = numeric(refs.range.value);
