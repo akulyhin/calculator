@@ -5,7 +5,9 @@ const refs = {
     check: document.getElementById('check'),
     work: document.getElementById('work'),
     result: document.getElementById('result'),
-    payback: document.querySelector('.result-time span')
+    payback: document.querySelector('.result-time span'),
+    currencyUsd: document.querySelector('.currency-usd'),
+    currencyDate: document.querySelector('.currencyDate span')
 }
 
 

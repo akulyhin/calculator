@@ -1,6 +1,17 @@
 import refs from './refs.js';
+let currency = 0;
+const url = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5';
+fetch(url)
+.then(res => res.json())
+.then(data => {
+    const usd = data.filter(usd => usd.ccy === 'USD');
+    usd.forEach(item => {
+        refs.currencyUsd.textContent = `${+item.buy} грн.`;
+        currency = +item.buy;
+    });
 
-const currency = 28;
+
+// const currency = 28;
 let investToUah = +refs.range.value * currency;
 
 refs.rangeBox.value = numeric(refs.range.value);
@@ -98,9 +109,10 @@ function numeric(data) {
 
 function payback(month) {
 const today = new Date();
+refs.currencyDate.textContent = formatDate(today);
+
 today.setMonth(today.getMonth() + +month);
 
-console.log(formatDate(today));
 
 refs.payback.textContent = formatDate(today);
 
@@ -119,3 +131,16 @@ function formatDate(date) {
   }
 
 }
+
+});
+ 
+function getCurrency() {
+
+
+
+
+
+}
+
+
+getCurrency();
