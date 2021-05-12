@@ -6,8 +6,8 @@ fetch(url)
 .then(data => {
     const usd = data.filter(usd => usd.ccy === 'USD');
     usd.forEach(item => {
-        refs.currencyUsd.textContent = `${+item.buy} грн.`;
-        currency = +item.buy;
+        refs.currencyUsd.textContent = `${+item.sale} грн.`;
+        currency = +item.sale;
     });
 
 
