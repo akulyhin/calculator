@@ -32,8 +32,11 @@ refs.range.addEventListener('input', (e) => {
     payback(refs.result.value);
 })
 
-refs.rangeBox.addEventListener('input', (e) => {
+refs.rangeBox.addEventListener('focus', (e) => {
     e.target.value = e.target.value.replace(/\s/g, '');
+});
+
+refs.rangeBox.addEventListener('input', (e) => {
 
     refs.range.value = e.target.value;
     investToUah = +e.target.value * currency;
@@ -48,7 +51,7 @@ refs.rangeBox.addEventListener('input', (e) => {
     payback(refs.result.value);
 })
 
-refs.rangeBox.addEventListener('change', (e) => {
+refs.rangeBox.addEventListener('blur', (e) => {
     e.target.value = numeric(e.target.value);
 })
 
