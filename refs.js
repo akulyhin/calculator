@@ -4,7 +4,8 @@ const refs = {
     clients: document.getElementById('clients'),
     check: document.getElementById('check'),
     work: document.getElementById('work'),
-    result: document.getElementById('result')
+    result: document.getElementById('result'),
+    payback: document.querySelector('.result-time span')
 }
 
 

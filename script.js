@@ -18,6 +18,7 @@ refs.range.addEventListener('input', (e) => {
     result = +clients * +check * +work;
     const resultMonth = investToUah / result;
     refs.result.value = resultMonth.toFixed(1);
+    payback(refs.result.value);
 })
 
 refs.rangeBox.addEventListener('input', (e) => {
@@ -33,6 +34,7 @@ refs.rangeBox.addEventListener('input', (e) => {
     result = +clients * +check * +work;
     const resultMonth = investToUah / result;
     refs.result.value = resultMonth.toFixed(1);
+    payback(refs.result.value);
 })
 
 refs.rangeBox.addEventListener('change', (e) => {
@@ -50,6 +52,7 @@ refs.clients.addEventListener('input', (e) => {
     result = +e.target.value * +check * +work;
     const resultMonth = investToUah / result;
     refs.result.value = resultMonth.toFixed(1);
+    payback(refs.result.value);
 })
 
 
@@ -63,6 +66,7 @@ refs.check.addEventListener('input', (e) => {
     result = +clients * +e.target.value * +work;
     const resultMonth = investToUah / result;
     refs.result.value = resultMonth.toFixed(1);
+    payback(refs.result.value);
 })
 
 
@@ -76,15 +80,42 @@ refs.work.addEventListener('input', (e) => {
     result = +clients * +check * +e.target.value;
     const resultMonth = investToUah / result;
     refs.result.value = resultMonth.toFixed(1);
+    payback(refs.result.value);
 })
 
 const resultMonth = investToUah / result;
 refs.result.value = resultMonth.toFixed(1);
 
+payback(refs.result.value);
 
 
 
 
 function numeric(data) {
     return data.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
+}
+
+
+function payback(month) {
+const today = new Date();
+today.setMonth(today.getMonth() + +month);
+
+console.log(formatDate(today));
+
+refs.payback.textContent = formatDate(today);
+
+function formatDate(date) {
+
+    let dd = date.getDate();
+    if (dd < 10) dd = '0' + dd;
+  
+    let mm = date.getMonth() + 1;
+    if (mm < 10) mm = '0' + mm;
+  
+    let yy = date.getFullYear();
+    if (yy < 10) yy = '0' + yy;
+  
+    return dd + '.' + mm + '.' + yy;
+  }
+
 }
