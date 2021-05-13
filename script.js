@@ -1,6 +1,6 @@
 import refs from './refs.js';
 let currency = 0;
-const url = 'https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11';
+const url = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5';
 fetch(url)
 .then(res => res.json())
 .then(data => {
